@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shans Organic | Təbiətdən Süfrəyə</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --cream: #faf6ef;
+    --warm-white: #fffdf9;
+    --honey: #c8862a;
+    --honey-light: #e8a94a;
+    --honey-pale: #f5e4c0;
+    --bark: #2c1a0e;
+    --bark-mid: #4a2e1a;
+    --bark-soft: #7a5c42;
+    --gold: #b8860b;
+    --sage: #6b7c5a;
+    --text-dark: #1a1008;
+    --text-mid: #5a3e28;
+    --text-light: #9a7c60;
+    --border: rgba(44,26,14,0.12);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--text-dark);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 64px;
+    background: rgba(250, 246, 239, 0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--bark);
+    letter-spacing: -0.02em;
+  }
+  .nav-logo span { color: var(--honey); }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--bark-soft);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--honey); }
+
+  .nav-cta {
+    background: var(--bark);
+    color: var(--cream) !important;
+    padding: 11px 28px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.25s, transform 0.2s;
+  }
+  .nav-cta:hover { background: var(--honey); transform: translateY(-1px); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 120px 64px 80px;
+    gap: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(200,134,42,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    background: rgba(200,134,42,0.1);
+    border: 1px solid rgba(200,134,42,0.3);
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--honey);
+    margin-bottom: 28px;
+  }
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--honey);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(44px, 5.5vw, 72px);
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--bark);
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--honey);
+  }
+
+  .hero-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--text-mid);
+    max-width: 420px;
+    margin-bottom: 48px;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--bark);
+    color: var(--cream);
+    padding: 16px 40px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.25s;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--honey); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,134,42,0.3); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--bark);
+    padding: 15px 40px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1.5px solid var(--bark);
+    transition: all 0.25s;
+    cursor: pointer;
+  }
+  .btn-outline:hover { background: var(--bark); color: var(--cream); }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--bark);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--text-light);
+    margin-top: 6px;
+    text-transform: uppercase;
+  }
+
+  /* HERO VISUAL */
+  .hero-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-main-card {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    background: var(--bark);
+    border-radius: 40px;
+    overflow: hidden;
+    aspect-ratio: 0.85;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 40px;
+  }
+
+  .hero-card-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, #3d2210 0%, #1a0d05 100%);
+  }
+  .hero-card-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 30% 20%, rgba(200,134,42,0.2) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 80%, rgba(200,134,42,0.1) 0%, transparent 40%);
+  }
+
+  .hero-product-img {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 75%;
+    object-fit: cover;
+    width: 100%;
+    mix-blend-mode: luminosity;
+    opacity: 0.85;
+    transition: transform 6s ease;
+  }
+  .hero-main-card:hover .hero-product-img {
+    transform: scale(1.03);
+  }
+
+  .hero-card-gradient {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 55%;
+    background: linear-gradient(to top, rgba(26,8,0,0.95) 0%, transparent 100%);
+    z-index: 1;
+  }
+
+  .hero-card-content {
+    position: relative;
+    z-index: 2;
+  }
+  .hero-card-tag {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--honey-light);
+    margin-bottom: 10px;
+  }
+  .hero-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .hero-card-title em { font-style: italic; color: var(--honey-light); }
+  .hero-card-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .price-label { font-size: 13px; color: rgba(255,255,255,0.6); }
+  .price-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--honey-light);
+  }
+
+  /* Floating badges on hero */
+  .float-badge {
+    position: absolute;
+    z-index: 10;
+    background: var(--warm-white);
+    border-radius: 16px;
+    padding: 14px 20px;
+    box-shadow: 0 20px 60px rgba(44,26,14,0.15);
+    border: 1px solid var(--border);
+  }
+  .float-badge-rating {
+    top: 30px; right: -30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .stars { color: var(--honey); font-size: 14px; letter-spacing: 2px; }
+  .rating-text { font-size: 13px; font-weight: 600; color: var(--bark); line-height: 1.3; }
+  .rating-sub { font-size: 11px; color: var(--text-light); font-weight: 400; }
+
+  .float-badge-cert {
+    bottom: 100px; left: -40px;
+    text-align: center;
+  }
+  .cert-icon { font-size: 24px; margin-bottom: 4px; }
+  .cert-text { font-size: 12px; font-weight: 700; color: var(--bark); letter-spacing: 0.04em; }
+  .cert-sub { font-size: 10px; color: var(--text-light); }
+
+  /* MARQUEE */
+  .marquee-section {
+    background: var(--bark);
+    padding: 18px 0;
+    overflow: hidden;
+  }
+  .marquee-track {
+    display: flex;
+    gap: 0;
+    animation: marquee 18s linear infinite;
+    white-space: nowrap;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 40px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+  }
+  .marquee-dot { width: 4px; height: 4px; background: var(--honey); border-radius: 50%; flex-shrink: 0; }
+
+  /* PRODUCTS */
+  .products-section {
+    padding: 120px 64px;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 60px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--honey);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 3.5vw, 48px);
+    font-weight: 700;
+    color: var(--bark);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  .section-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--text-mid);
+    line-height: 1.7;
+    max-width: 420px;
+    margin-top: 12px;
+  }
+
+  .view-all {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--bark);
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--bark);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .view-all:hover { color: var(--honey); border-color: var(--honey); }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .product-card {
+    background: var(--warm-white);
+    border-radius: 28px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    cursor: pointer;
+  }
+  .product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(44,26,14,0.1);
+  }
+
+  .product-img-wrap {
+    height: 280px;
+    overflow: hidden;
+    background: var(--honey-pale);
+    position: relative;
+  }
+  .product-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .product-card:hover .product-img-wrap img { transform: scale(1.08); }
+
+  .product-tag {
+    position: absolute;
+    top: 16px; left: 16px;
+    background: rgba(255,253,249,0.95);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--bark);
+  }
+
+  .product-body {
+    padding: 24px 28px 28px;
+  }
+  .product-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--bark);
+    margin-bottom: 6px;
+  }
+  .product-sub {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-bottom: 20px;
+  }
+  .product-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .product-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--bark);
+  }
+  .product-price span { font-size: 14px; font-weight: 400; color: var(--text-light); margin-left: 4px; }
+
+  .add-btn {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--bark);
+    color: var(--cream);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .add-btn:hover { background: var(--honey); transform: scale(1.1); }
+
+  /* WHY SECTION */
+  .why-section {
+    background: var(--bark);
+    padding: 100px 64px;
+  }
+  .why-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .why-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+  .why-label { color: rgba(255,255,255,0.4); }
+  .why-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 700;
+    color: white;
+    letter-spacing: -0.02em;
+    margin-top: 10px;
+  }
+  .why-title em { font-style: italic; color: var(--honey-light); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+  }
+
+  .why-card {
+    padding: 48px 36px;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: background 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .why-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--honey);
+    transform: scaleX(0);
+    transition: transform 0.35s ease;
+    transform-origin: left;
+  }
+  .why-card:hover::before { transform: scaleX(1); }
+  .why-card:hover { background: rgba(255,255,255,0.04); }
+
+  .why-icon {
+    font-size: 36px;
+    margin-bottom: 24px;
+    display: block;
+  }
+  .why-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 12px;
+  }
+  .why-card-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+  }
+
+  /* FEATURE SPLIT */
+  .feature-section {
+    padding: 120px 64px;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .feature-img-wrap {
+    position: relative;
+  }
+  .feature-img-main {
+    width: 100%;
+    border-radius: 32px;
+    overflow: hidden;
+    aspect-ratio: 0.85;
+    background: var(--honey-pale);
+    position: relative;
+  }
+  .feature-img-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .feature-float {
+    position: absolute;
+    bottom: -24px; right: -24px;
+    background: var(--warm-white);
+    border-radius: 20px;
+    padding: 20px 24px;
+    box-shadow: 0 20px 50px rgba(44,26,14,0.12);
+    border: 1px solid var(--border);
+    min-width: 200px;
+  }
+  .float-title { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); margin-bottom: 8px; }
+  .float-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--bark);
+    line-height: 1;
+  }
+  .float-val span { font-size: 14px; color: var(--honey); font-weight: 600; margin-left: 6px; }
+
+  .feature-content { }
+  .feature-checks { list-style: none; display: flex; flex-direction: column; gap: 16px; margin: 36px 0 48px; }
+  .feature-checks li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.6;
+  }
+  .check-icon {
+    width: 24px; height: 24px;
+    background: rgba(200,134,42,0.12);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--honey);
+    font-size: 14px;
+    margin-top: 1px;
+  }
+
+  /* COLLECTION GRID */
+  .collection-section {
+    padding: 80px 64px 120px;
+    background: #f3ede3;
+  }
+  .collection-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .collection-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 20px;
+    margin-top: 60px;
+  }
+  .coll-card {
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 0.75;
+    cursor: pointer;
+  }
+  .coll-card.wide {
+    grid-column: span 2;
+    aspect-ratio: 1.6;
+  }
+  .coll-card img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+  }
+  .coll-card:hover img { transform: scale(1.08); }
+  .coll-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(26,8,0,0.85) 0%, transparent 55%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 28px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .coll-card:hover .coll-overlay { opacity: 1; }
+  .coll-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.2;
+  }
+  .coll-sub { font-size: 12px; color: rgba(255,255,255,0.65); letter-spacing: 0.08em; margin-top: 4px; }
+
+  .coll-promo {
+    grid-column: 3 / span 2;
+    grid-row: 2;
+    background: var(--bark);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 40px;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: auto;
+  }
+  .coll-promo::before {
+    content: '%';
+    position: absolute;
+    font-family: 'Playfair Display', serif;
+    font-size: 200px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.04);
+    right: -20px; top: -30px;
+    line-height: 1;
+  }
+  .promo-pct {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-weight: 700;
+    color: var(--honey-light);
+    line-height: 1;
+  }
+  .promo-text { font-size: 15px; color: rgba(255,255,255,0.7); }
+  .promo-btn {
+    margin-top: 8px;
+    background: var(--honey);
+    color: white;
+    padding: 12px 32px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .promo-btn:hover { background: var(--honey-light); transform: scale(1.04); }
+
+  /* TESTIMONIALS */
+  .testimonials-section {
+    padding: 100px 64px;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+  }
+  .testi-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 36px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .testi-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(44,26,14,0.08);
+  }
+  .testi-stars { color: var(--honey); font-size: 16px; letter-spacing: 3px; margin-bottom: 20px; }
+  .testi-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--text-mid);
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+  .testi-author { display: flex; align-items: center; gap: 14px; }
+  .testi-avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--honey-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+  .testi-name { font-size: 14px; font-weight: 700; color: var(--bark); }
+  .testi-role { font-size: 12px; color: var(--text-light); }
+
+  /* NEWSLETTER */
+  .newsletter-section {
+    margin: 0 64px 80px;
+    background: var(--bark);
+    border-radius: 40px;
+    padding: 80px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .newsletter-section::before {
+    content: '';
+    position: absolute;
+    right: -100px; top: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(200,134,42,0.15) 0%, transparent 70%);
+  }
+  .nl-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .nl-title em { font-style: italic; color: var(--honey-light); }
+  .nl-desc { font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.7; }
+  .nl-form { display: flex; gap: 12px; flex-direction: column; }
+  .nl-input-row { display: flex; gap: 12px; }
+  .nl-input {
+    flex: 1;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 100px;
+    padding: 16px 28px;
+    font-size: 14px;
+    color: white;
+    outline: none;
+    font-family: 'DM Sans', sans-serif;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .nl-input::placeholder { color: rgba(255,255,255,0.35); }
+  .nl-input:focus { border-color: var(--honey); background: rgba(255,255,255,0.12); }
+  .nl-submit {
+    background: var(--honey);
+    color: white;
+    padding: 16px 36px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    white-space: nowrap;
+  }
+  .nl-submit:hover { background: var(--honey-light); transform: scale(1.02); }
+  .nl-note { font-size: 12px; color: rgba(255,255,255,0.3); }
+
+  /* FOOTER */
+  footer {
+    background: var(--text-dark);
+    padding: 80px 64px 40px;
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 64px;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 16px;
+  }
+  .footer-logo span { color: var(--honey); }
+  .footer-about { font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.8; margin-bottom: 28px; }
+  .footer-socials { display: flex; gap: 12px; }
+  .social-btn {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.07);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+    color: white;
+  }
+  .social-btn:hover { background: var(--honey); }
+  .footer-col h4 {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 20px;
+  }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-links a {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--honey); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); }
+  .footer-legal { display: flex; gap: 32px; }
+  .footer-legal a { font-size: 13px; color: rgba(255,255,255,0.3); text-decoration: none; }
+  .footer-legal a:hover { color: rgba(255,255,255,0.6); }
+
+  /* SCROLL REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 1024px) {
+    nav { padding: 16px 32px; }
+    .nav-links { gap: 24px; }
+    .hero { padding: 100px 32px 60px; gap: 40px; }
+    .products-section, .feature-section, .testimonials-section { padding: 80px 32px; }
+    .why-section { padding: 80px 32px; }
+    .why-grid { grid-template-columns: repeat(2, 1fr); }
+    .collection-section { padding: 60px 32px 80px; }
+    .newsletter-section { margin: 0 32px 60px; padding: 60px 48px; }
+    footer { padding: 60px 32px 32px; }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 14px 20px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 100px 20px 60px; }
+    .hero-visual { order: -1; }
+    .hero-main-card { max-width: 100%; }
+    .float-badge-rating { right: 10px; top: 10px; }
+    .float-badge-cert { left: 10px; bottom: 60px; }
+    .hero-stats { gap: 24px; }
+    .products-section { padding: 60px 20px; }
+    .products-grid { grid-template-columns: 1fr; }
+    .why-section { padding: 60px 20px; }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .feature-section { grid-template-columns: 1fr; padding: 60px 20px; gap: 40px; }
+    .collection-section { padding: 60px 20px 80px; }
+    .collection-grid { grid-template-columns: 1fr 1fr; }
+    .coll-promo { grid-column: span 2; }
+    .testimonials-section { padding: 60px 20px; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .newsletter-section { margin: 0 20px 60px; padding: 48px 32px; grid-template-columns: 1fr; }
+    .nl-input-row { flex-direction: column; }
+    footer { padding: 60px 20px 32px; }
+    .footer-top { grid-template-columns: 1fr; gap: 40px; }
+    .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    .section-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Shans <span>Organic</span></div>
+  <ul class="nav-links">
+    <li><a href="#">Məhsullar</a></li>
+    <li><a href="#">Hekayəmiz</a></li>
+    <li><a href="#">Kolleksiya</a></li>
+    <li><a href="#">Əlaqə</a></li>
+  </ul>
+  <a href="#" class="nav-cta">Sifariş Et</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-left reveal">
+    <div class="hero-badge">100% Təbii Məhsullar</div>
+    <h1 class="hero-title">
+      Təbiətin<br/>
+      <em>Forması.</em><br/>
+      Texnologiyanın Ruhu.
+    </h1>
+    <p class="hero-desc">
+      Ən təmiz dağ balı, seçilmiş üzümlərdən hazırlanan şərablar və ənənəvi şirniyyatlarla təbiətin bütün zənginliyini süfrənizə gətiririk.
+    </p>
+    <div class="hero-btns">
+      <a href="#" class="btn-primary">Kolleksiyanı Kəşf Et</a>
+      <a href="#" class="btn-outline">Biz Kimik?</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">250+</div>
+        <div class="stat-label">Məhsul növü</div>
+      </div>
+      <div>
+        <div class="stat-num">12K</div>
+        <div class="stat-label">Müştəri</div>
+      </div>
+      <div>
+        <div class="stat-num">4.9</div>
+        <div class="stat-label">Ortalama Rəy</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-main-card">
+      <div class="hero-card-bg"></div>
+      <div class="hero-card-pattern"></div>
+      <img class="hero-product-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb-AAOxxSxypLQvlFIwqKdqCxuJHuD4VCoI1jsktoSztsBWJkHPakwhNwxBZNlO2_emmc_X9gH2LM-3MEGZSWr1nGACwHYYFVl4iPLSjN8IJXCfIrR4xCztUu_S9f7JH-VlLZBrxrLj_F2yLdUF6jpMeTS3c4EQw0GbVczE1FhV74l4-yRGR4-7iK4gANqU7UMYsh7xjQVS8VEEks2rRZCYyzpKVv_yBc2zoxon84tDdnUIFCrH1Jn9N0uxaFXv9SAVT_sSUFG4tOo" alt="Shans honey"/>
+      <div class="hero-card-gradient"></div>
+      <div class="hero-card-content">
+        <div class="hero-card-tag">Yeni Kolleksiya · 2024</div>
+        <div class="hero-card-title">Təbii, Saf,<br/><em>Əsl Bal.</em></div>
+        <div class="hero-card-price">
+          <span class="price-label">500g · Dağ Çiçəyi</span>
+          <span class="price-val">18 AZN</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="float-badge float-badge-rating">
+      <div>
+        <div class="stars">★★★★★</div>
+        <div class="rating-text">Premium Keyfiyyət</div>
+        <div class="rating-sub">4.9 / 5 · 2,400+ rəy</div>
+      </div>
+    </div>
+
+    <div class="float-badge float-badge-cert">
+      <div class="cert-icon">🍃</div>
+      <div class="cert-text">Sertifikatlı</div>
+      <div class="cert-sub">Organic</div>
+    </div>
+  </div>
+</header>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <!-- Repeated twice for seamless loop -->
+    <span class="marquee-item"><span class="marquee-dot"></span>Dağ Balı</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Şəki Paxlavası</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Üzüm Şərabı</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Bamiyə</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Bəhməz</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Ənənəvi Reseptlər</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Premium Keyfiyyət</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>100% Təbii</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Dağ Balı</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Şəki Paxlavası</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Üzüm Şərabı</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Bamiyə</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Bəhməz</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Ənənəvi Reseptlər</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Premium Keyfiyyət</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>100% Təbii</span>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="products-section">
+  <div class="section-header reveal">
+    <div>
+      <div class="section-label">Bestsellerlər</div>
+      <h2 class="section-title">Məhsul Kolleksiyamız</h2>
+      <p class="section-desc">Hər bir məhsulumuz xüsusi diqqət ilə, təbiətin ən təmiz guşələrindən seçilərək hazırlanır.</p>
+    </div>
+    <a href="#" class="view-all">Hamısını Gör →</a>
+  </div>
+
+  <div class="products-grid">
+    <div class="product-card reveal">
+      <div class="product-img-wrap">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb-AAOxxSxypLQvlFIwqKdqCxuJHuD4VCoI1jsktoSztsBWJkHPakwhNwxBZNlO2_emmc_X9gH2LM-3MEGZSWr1nGACwHYYFVl4iPLSjN8IJXCfIrR4xCztUu_S9f7JH-VlLZBrxrLj_F2yLdUF6jpMeTS3c4EQw0GbVczE1FhV74l4-yRGR4-7iK4gANqU7UMYsh7xjQVS8VEEks2rRZCYyzpKVv_yBc2zoxon84tDdnUIFCrH1Jn9N0uxaFXv9SAVT_sSUFG4tOo" alt="Təbii Bal"/>
+        <span class="product-tag">Bestseller</span>
+      </div>
+      <div class="product-body">
+        <div class="product-name">Təbii Bal</div>
+        <div class="product-sub">500g · Dağ Çiçəyi Balı</div>
+        <div class="product-footer">
+          <div class="product-price">18 AZN <span>/ 500g</span></div>
+          <button class="add-btn">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal" style="transition-delay: 0.1s">
+      <div class="product-img-wrap">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFO17olfn2mIYmYGfXVJUM3HaNK5Fpz0t2SK8mdXlhcT66xwrVEKBupy87qL-bjC6ixYjrd0PE5Fa65dm0XsubMpr8XAm1FkUTZkJXH3TeE_2gBvT7Q_1iWY8lwhij-gk4eMYRZxQSobYAGE5ekbib0MopHf5_wPfrYXiYn2DmG-RomB-Pcg2Jd11PAZO1DggcLMnqUCBRzLcT1CV8cp1a6Ez39NGebpGA9JXO2NiqFveOVNIhO-LZs8zucPOv2JXC7qt_m-bMCN4K" alt="Paxlava"/>
+        <span class="product-tag">Ənənəvi</span>
+      </div>
+      <div class="product-body">
+        <div class="product-name">Paxlava</div>
+        <div class="product-sub">Əsl Şəki Paxlavası · Premium Qutu</div>
+        <div class="product-footer">
+          <div class="product-price">15 AZN <span>/ qutu</span></div>
+          <button class="add-btn">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal" style="transition-delay: 0.2s">
+      <div class="product-img-wrap">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8k0ir_4S5nDU1XxXBObw3t5hfv97duUatQPDgUHgiy1McjfZY7HENilgspe8_vWbtWJJbMzV2uC04ixTpfm74Dow56lIH8soGKDmVBa2NfuJGUhUCRkpE1L31MKVbr02AmN1CPGptfqMIVTW2FN-vleokcg7eAloH-0_bntiPbw_ihd74FWP0gZU1biw9obDwG8g1TIcUp5dlPNRTiVp7S7kogBTBn_CIvQu5PV2aQDlxdzPm3EjbWwc0McANoZQtnyXd2rz5cEhm" alt="Bamiyə"/>
+        <span class="product-tag">Yeni</span>
+      </div>
+      <div class="product-body">
+        <div class="product-name">Bamiyə</div>
+        <div class="product-sub">Ənənəvi Şirniyyat · El İşi</div>
+        <div class="product-footer">
+          <div class="product-price">8 AZN <span>/ 300g</span></div>
+          <button class="add-btn">+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY SHANS -->
+<section class="why-section">
+  <div class="why-inner">
+    <div class="why-header reveal">
+      <div class="section-label why-label">Fərqimiz</div>
+      <h2 class="why-title">Niyə <em>Shans?</em></h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <span class="why-icon">🌿</span>
+        <div class="why-card-title">Organic</div>
+        <div class="why-card-desc">Tamamilə təbii, heç bir qatqı olmadan hazırlanan məhsullar. Torpaqdan süfrəyə saf bir yol.</div>
+      </div>
+      <div class="why-card reveal" style="transition-delay:0.1s">
+        <span class="why-icon">🍯</span>
+        <div class="why-card-title">Taste</div>
+        <div class="why-card-desc">Yüzillər boyu nəsildən-nəsilə ötürülən ənənəvi reseptlər ilə unudulmaz dadlar.</div>
+      </div>
+      <div class="why-card reveal" style="transition-delay:0.2s">
+        <span class="why-icon">✦</span>
+        <div class="why-card-title">Quality</div>
+        <div class="why-card-desc">Hər məhsul ciddi keyfiyyət nəzarətindən keçir. Yalnız ən yüksək standartlar qəbul edilir.</div>
+      </div>
+      <div class="why-card reveal" style="transition-delay:0.3s">
+        <span class="why-icon">📍</span>
+        <div class="why-card-title">Local</div>
+        <div class="why-card-desc">Azərbaycanın müxtəlif güşələrindən gələn yerli xammal ilə istehsal. Hər dad bir hekayə.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE SPLIT -->
+<section class="feature-section">
+  <div class="feature-img-wrap reveal">
+    <div class="feature-img-main">
+      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5K_nagXDux_dSTsNckFT8DTw7wZk4YM3Q1X7NPSKgPntW_DWCn1HFvwjWmBosAluQ0vNuLl2ov5OGz9apqT8B4nuVYDX4CVJv4dj-Cn7OT74Sqrm8Z5uw9_SATLd2wFh8Oet74tBw6g2W5SqSdDBAlXbdYnFnhQYYXuMeledUEiuXvPCXnCYTynRhJ3IXpLSzrLKcq5W_3iW2MTiBL-VedPwDlnGQQFj3t1njLL1Ne1unpxt_95ap8fcWF-lmI-hvjRm4NmjxyEzh" alt="Pancakes with honey"/>
+    </div>
+    <div class="feature-float">
+      <div class="float-title">Bu Ayın Populyarı</div>
+      <div class="float-val">Bal Pankek <span>↑ 38%</span></div>
+    </div>
+  </div>
+
+  <div class="feature-content reveal" style="transition-delay:0.15s">
+    <div class="section-label">Süfrənizdə</div>
+    <h2 class="section-title">Yeni Bir Nəfəs</h2>
+    <p class="section-desc">Səhər yeməklərinizi bizim təbii ballarımız və xüsusi pankek qarışıqlarımızla canlandırın.</p>
+    <ul class="feature-checks">
+      <li>
+        <span class="check-icon">✓</span>
+        <span>Hər gün təzə hazırlanır – heç bir süni qatqı olmadan</span>
+      </li>
+      <li>
+        <span class="check-icon">✓</span>
+        <span>Xüsusi reseptlər – nəsildən-nəsilə ötürülən ənənəvi üsullar</span>
+      </li>
+      <li>
+        <span class="check-icon">✓</span>
+        <span>Yerli istehsalat – Azərbaycanın ən təmiz torpaqlarından</span>
+      </li>
+      <li>
+        <span class="check-icon">✓</span>
+        <span>Sürətli çatdırılma – Bakı daxilində eyni gün</span>
+      </li>
+    </ul>
+    <a href="#" class="btn-primary">İndi Dadın</a>
+  </div>
+</section>
+
+<!-- COLLECTION GRID -->
+<section class="collection-section">
+  <div class="collection-inner">
+    <div class="section-header reveal">
+      <div>
+        <div class="section-label">Bütün Kateqoriyalar</div>
+        <h2 class="section-title">Kolleksiyamız</h2>
+      </div>
+    </div>
+    <div class="collection-grid">
+      <div class="coll-card reveal">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuApBqEjqYgOAZQ9GR5eA5tKsTToI7yHecTRMJkK2hzQfiyKKzFhtDXKr-E7gAcQ6DCj8u0YiqEnmn2T4kKFY_Gr-tm_xW9H7l0eerrqdgFJUWZyky908YI-Vj0EtRwztIeL8BcGQ8rLcfLjvzGdCz62IQnv0mOklvX1X2yvdSQ_1mufARCnSIEAL_wCobr0yzN4DulGtfkiiaPw9o02pfN5x16YgkvG3KDobsLDDX2mEJptJ78ImaVHUXZ_kpZSIr1DtZrxjJsc_C1g" alt="Keks"/>
+        <div class="coll-overlay">
+          <div class="coll-name">Böyük Keks</div>
+          <div class="coll-sub">Artisanal Bakery</div>
+        </div>
+      </div>
+      <div class="coll-card reveal" style="transition-delay:0.1s">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8s1QPE9WYV98PehBKnhybOOCrg2tHUGkxPyduMgv6-xgtrL6LDU9PMfmHHdZdxBzs8LDKV8MtPK7w9eDdJTMKb8BXIsRy1EsQmFE_JVXmrCcJCmumkwCjvYoxwOsN-PQ-RyjYthGN72xwusWg7Vz1Hq6D2PQDz_Fdl98_DIwoCEUWKZixPjkqiVUyou1wu6uYBkFor9zdQ9z2uKKnwWcCggm07oBipW3IN4EFo3qzqRvXoF-Sj0NBko7Mn_M7xJz6gCC872_R-LVB" alt="Mini Keks"/>
+        <div class="coll-overlay">
+          <div class="coll-name">Mini Keks</div>
+          <div class="coll-sub">Gündəlik Dadlar</div>
+        </div>
+      </div>
+      <div class="coll-promo reveal" style="transition-delay:0.2s">
+        <div class="promo-pct">20%</div>
+        <div class="promo-text">İlk sifarişinizə özəl endirim</div>
+        <button class="promo-btn">Kuponu Al</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="section-header reveal">
+    <div>
+      <div class="section-label">Müştəri Rəyləri</div>
+      <h2 class="section-title">Onlar nə düşünür?</h2>
+    </div>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-quote">"Həyatımda dadığım ən yaxşı bal. Həqiqətən dağ çiçəyinin ətrini hiss etmək mümkündür. Shans-ın məhsulları sadəcə inanılmazdır."</div>
+      <div class="testi-author">
+        <div class="testi-avatar">👩</div>
+        <div>
+          <div class="testi-name">Aynur Hüseynova</div>
+          <div class="testi-role">Daimi Müştəri · Bakı</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal" style="transition-delay:0.1s">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-quote">"Paxlavanı ilk dəfə dadanda valeh oldum. Ənənəvi dad, müasir qablaşdırma. Hədiyyə üçün mükəmməl seçim. Hər kəsə tövsiyə edirəm."</div>
+      <div class="testi-author">
+        <div class="testi-avatar">👨</div>
+        <div>
+          <div class="testi-name">Fərид Əliyev</div>
+          <div class="testi-role">İş Adamı · Gəncə</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal" style="transition-delay:0.2s">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-quote">"Xaricdə Azərbaycan dadını özümlə aparmaq istəyəndə həmişə Shans seçirəm. Keyfiyyətə əmin olmaq çox rahatdır."</div>
+      <div class="testi-author">
+        <div class="testi-avatar">👩</div>
+        <div>
+          <div class="testi-name">Leyla Məmmədova</div>
+          <div class="testi-role">Diaspor · Berlin</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<div class="newsletter-section reveal">
+  <div>
+    <h2 class="nl-title">Yeniliklərdən<br/><em>İlk Xəbərdar Olun</em></h2>
+    <p class="nl-desc">Mövsümi kolleksiyalar, xüsusi endirimlər və ənənəvi reseptlər birbaşa sizə gəlsin.</p>
+  </div>
+  <div class="nl-form">
+    <div class="nl-input-row">
+      <input class="nl-input" placeholder="E-mail ünvanınız" type="email"/>
+      <button class="nl-submit">Abunə Ol</button>
+    </div>
+    <div class="nl-note">Spam yoxdur. İstənilən vaxt abunəliyi ləğv edə bilərsiniz.</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">Shans <span>Organic</span></div>
+      <p class="footer-about">Təbiətdən gələn saflığı süfrənizə daşıyırıq. Azərbaycanın ən təmiz məhsulları bir məkanda. Ənənəvi dadları müasir dünyaya qovuşdururuq.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn">𝕏</a>
+        <a href="#" class="social-btn">in</a>
+        <a href="#" class="social-btn">📷</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Məhsullar</h4>
+      <ul class="footer-links">
+        <li><a href="#">Təbii Ballar</a></li>
+        <li><a href="#">Şərablar</a></li>
+        <li><a href="#">Şirniyyatlar</a></li>
+        <li><a href="#">Keks və Tortlar</a></li>
+        <li><a href="#">Bəhməz</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Şirkət</h4>
+      <ul class="footer-links">
+        <li><a href="#">Hekayəmiz</a></li>
+        <li><a href="#">Xidmətlərimiz</a></li>
+        <li><a href="#">Korporativ</a></li>
+        <li><a href="#">Əlaqə</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Dəstək</h4>
+      <ul class="footer-links">
+        <li><a href="#">Çatdırılma</a></li>
+        <li><a href="#">Qaytarma Siyasəti</a></li>
+        <li><a href="#">Tez-tez Soruşulanlar</a></li>
+        <li><a href="#">Əlaqə</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2024 Shans Organic. Bütün hüquqlar qorunur.</div>
+    <div class="footer-legal">
+      <a href="#">Məxfilik Siyasəti</a>
+      <a href="#">İstifadə Şərtləri</a>
+      <a href="#">Çərəz Siyasəti</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Add to cart micro-interaction
+  document.querySelectorAll('.add-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      this.textContent = '✓';
+      this.style.background = '#6b7c5a';
+      setTimeout(() => {
+        this.textContent = '+';
+        this.style.background = '';
+      }, 1400);
+    });
+  });
+</script>
+
+</body>
+</html>
